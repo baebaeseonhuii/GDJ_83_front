@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" value="1" name="ch" class="ch">
+    <input type="checkbox" value="2" name="ch" class="ch" checked>
+    <input type="checkbox" value="3" name="ch" class="ch">
+    <input type="checkbox" value="4" name="ch" class="ch">
+    <button onclick="info()">CLICK</button>
+
+    <script>
+        //checked의 속성을 가져오기
+        const ch = document.getElementsByClassName("ch")
+
+        function info() {
+            // for(let i = 0; i < ch.length; i++) {
+            //     console.log(ch[i].checked)
+                
+            // }
+
+            if(ch[0].checked==true) {
+                for(let i = 0; i < ch.length; i++) {
+                    ch[i].checked = true
+                }
+            } else {
+                for(let i = 0; i < ch.length; i++) {
+                    ch[i].checked = false
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>
