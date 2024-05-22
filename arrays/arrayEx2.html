@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="panda" src="/images/fubao1.jpg" alt="fubao">
+    </div>
+    <button onclick="nextImage()">Next</button>
+
+
+    <script>
+        let ar = ["fubao1.jpg","fubao2.jpg","fubao3.jpg","fubao4.jpg","fubao5.jpg"];
+        //next버튼을 누르면 ar에서 하나씩 꺼내서 보여줌
+        const panda = document.getElementById("panda");
+        let n = 0;
+        
+        function nextImage() {
+            console.log(panda.src);
+            // for(let i = 0; i < ar.length; i++) {
+            //     panda.src = "/images/"+ar[i];
+            //     console.log(i)
+            // }
+            n++;
+            if(n>4) {
+                alert("last image");
+                n=0;
+                return;
+            }
+            panda.src = "/images/" + ar[n];
+        }
+    </script>
+</body>
+</html>
