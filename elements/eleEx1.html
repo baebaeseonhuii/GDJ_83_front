@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* div {
+            text-decoration: line-through;
+        } */
+    </style>
 </head>
 
 <body>
@@ -36,6 +41,7 @@
             console.log(ar[i])
             let t = document.createTextNode(ar[i]);
 
+            //appendChild는 문자열 넣으면 안되고 객체타입(변수)만 넣을 수 있다
             d.appendChild(t);
             result.append(d)
 
