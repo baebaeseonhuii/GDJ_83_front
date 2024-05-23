@@ -10,6 +10,14 @@
     <button id="btn">ADD</button>
     <ul id="result"></ul>
 
+    <div id="result2">
+        <!-- <div>
+            <input type="file">
+            <span>x</span>
+        </div> -->
+    </div>
+    <button id="btn2">ADD2</button>
+
     <script>
         //add 누르면 ul태그 안에 누적으로 li태그 만들어짐
         //input에 있는 li로
@@ -18,13 +26,46 @@
         const btn = document.getElementById("btn");
         const result = document.getElementById("result");
 
+        const btn2 = document.getElementById("btn2");
+        const result2 = document.getElementById("result2");
+
+        btn2.addEventListener("click", function() {
+            //<div> 만들기
+            let d = document.createElement("div");
+            //<input> 만들기
+            let i = document.createElement("input");
+            //<span> 만들기
+            
+            
+            //type = "file"
+            // let a = document.createAttribute("type");
+            // a.value = "file";
+            i.type = "file"
+            //<input type="file">
+            //i.setAttributeNode(a)
+
+            //<div><input type="file"></div>
+            d.appendChild(i)
+
+            i = document.createElement("span");
+            let t = document.createTextNode("X")
+            i.appendChild(t)
+            d.append(i)
+            
+            result2.append(d);
+            result2.append(d);
+        })
+
+
+
         btn.addEventListener("click", function() {
             let v = info.value
             
-            //<li></li> 태그를 만들겠다
+            //<li></li> 태그를 만들겠다 태그명 적으면 됨
             let li = document.createElement("li")
 
             //contents 생성 & 노드화 시키기
+            //문자열을 넣으면 됨
             let c = document.createTextNode(v)
 
             //<li>뭐뭐뭐</li> 적은 내용을 li태그 안에 넣고

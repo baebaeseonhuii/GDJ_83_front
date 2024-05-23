@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="result">
+        <!-- <div id="result">
+            <input type="checkbox"> 바나나
+        </div> -->
+    </div>
+
+
+    <script>
+        //5개의 체크박스
+        const ar = ["바나나", "수박", "참외", "사과", "망고"];
+        const result = document.getElementById("result");
+
+
+        // let d = document.createElement("div");
+        // let c = document.createElement("input");
+        // c.type = "checkbox";
+
+        // d.appendChild(c)
+
+        for (let i = 0; i < ar.length; i++) {
+            let d = document.createElement("div");
+            let c = document.createElement("input");
+            c.type = "checkbox";
+
+            d.appendChild(c)
+            console.log(ar[i])
+            let t = document.createTextNode(ar[i]);
+
+            d.appendChild(t);
+            result.append(d)
+
+        }
+    </script>
+</body>
+
+</html>
