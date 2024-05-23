@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="info">
+    <button id="btn">ADD</button>
+    <ul id="result"></ul>
+
+    <script>
+        //add 누르면 ul태그 안에 누적으로 li태그 만들어짐
+        //input에 있는 li로
+
+        const info = document.getElementById("info");
+        const btn = document.getElementById("btn");
+        const result = document.getElementById("result");
+
+        btn.addEventListener("click", function() {
+            let v = info.value
+            
+            //<li></li> 태그를 만들겠다
+            let li = document.createElement("li")
+
+            //contents 생성 & 노드화 시키기
+            let c = document.createTextNode(v)
+
+            //<li>뭐뭐뭐</li> 적은 내용을 li태그 안에 넣고
+            li.appendChild(c);
+
+            //li 태그를 추가시키기
+            result.appendChild(li);
+        })
+
+    </script>
+</body>
+</html>
