@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            border: 5px solid black;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: skyblue;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+    <div class="button">    
+    </div>
+
+
+
+    <script>
+        let btn = document.getElementsByClassName("button");
+
+        // for(let i = 0; i < )
+        btn.addEventListener("click", function() {
+            this.style.backgroundColor = "red";
+            console.log("clicked")
+        })
+    </script>
+</body>
+</html>

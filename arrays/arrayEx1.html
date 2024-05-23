@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <input type="checkbox" value="1" id="checkAll" name="ch" class="ch">
-    <input type="checkbox" value="1" name="ch" class="ch">
+    <input onclick="info()" type="checkbox" value="1" id="checkAll" name="ch">
     <input type="checkbox" value="2" name="ch" class="ch">
     <input type="checkbox" value="3" name="ch" class="ch">
     <input type="checkbox" value="4" name="ch" class="ch">
+    <input type="checkbox" value="5" name="ch" class="ch">
     <button onclick="info()">CLICK</button>
 
     <script>
         //checked의 속성을 가져오기
-        const checkAll = document.getElementById("checkAll")
-        const ch = document.getElementsByClassName("ch")
+        //1. 1번 누른 상태 - 다른 체크박스가 해제되면 1번도 해제되게
+        //2. 다른 체크박스들이 다 체크돼있으면 1번도 체크되게
+        //네개의 체크박스에 클릭이벤트가 들어가야
+
+        const checkAll = document.getElementById("checkAll");
+        const ch = document.getElementsByClassName("ch");
+
+        for(let i = 0; i < ch.length; i++) {
+            ch[i].addEventListener("click", function() {
+                let flag = true;
+
+                //4개의 체크박스의 체크 유무를 판단
+                for(let j = 0; j < ch.length; j++) {
+                    if(ch[j].checked == false) {
+                        flag = false;
+                        break;
+                    }
+                }
+                //최종 결과물을 checkAll에 대입
+                checkAll.checked = flag;
+            })
+        }
+
 
         function info() {
-            // for(let i = 0; i < ch.length; i++) {
-            //     console.log(ch[i].checked)
-                
-            // }
-
-            if(checkAll.checked==true) {
-                for(let i = 0; i < ch.length; i++) {
-                    ch[i].checked = true
-                }
-            } else {
-                for(let i = 0; i < ch.length; i++) {
-                    ch[i].checked = false
-                }
+            for(let i = 0; i < ch.length; i++) {
+                ch[i].checked = checkAll.checked;
             }
         }
-        
+
+
     </script>
 </body>
+
 </html>
