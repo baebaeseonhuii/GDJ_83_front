@@ -29,14 +29,18 @@
         const add = document.getElementById("add");
         const result = document.getElementById("result");
         const b = document.getElementById("b")
+        
 
         result.addEventListener("click", function(e) {
             console.log(e)
-            if(e.target.classList.contains("btns")) {
-                console.log("button")
-                go();
+            //e.target => button element
+            //document.getElement와 같음
+            // 제일 자식부터 target이 됨
+            //ex) <div><span><button></button></span></div>이렇게 있으면 button이 target이 됨
+             if(e.target.classList.contains("btns")) {
+                go()
             } //실제 클릭한 버튼
-            go()
+            go();
 
         }) 
         b.addEventListener("click", function() {
@@ -57,7 +61,7 @@
                 go()
             })
         }
-        //add버튼 클릭했을때 div 안에 button  들어가게
+        //add버튼 클릭했을때 div 안에 button 들어가게
 
         function go() {
             console.log("같은 일을 하자");
