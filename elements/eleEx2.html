@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input onclick="info()" id="checkAll" type="checkbox">
+        <span>전체 선택</span>
+        <button id="delBtn">DELETE</button>
+    </div>
+    <div class="c1" id="result1">
+        <input type="checkbox" class="ch" data-del-num="result1">
+        <span>email title1</span>
+    </div>
+    <div class="c1" id="result2">
+        <input type="checkbox" class="ch" data-del-num="result2">
+        <span>email title2</span>
+    </div>
+    <div class="c1" id="result3">
+        <input type="checkbox" class="ch" data-del-num="result3">
+        <span>email title3</span>
+    </div>
+    <div class="c1" id="result4">
+        <input type="checkbox" class="ch" data-del-num="result4">
+        <span>email title4</span>
+    </div>
+    <div class="c1" id="result5">
+        <input type="checkbox" class="ch" data-del-num="result5">
+        <span>email title5</span>
+    </div>
+
+
+
+    <script>
+        //1. check all 만들기 & check all 상태였다가 나머지 하나라도 unchecked면 check all 풀기
+        const checkAll = document.getElementById("checkAll");
+        const ch = document.getElementsByClassName("ch");
+        const c = document.getElementsByClassName("c1")
+
+        for (let i = 0; i < ch.length; i++) {
+            ch[i].addEventListener("click", function () {
+                let flag = true;
+                for (let j = 0; j < ch.length; j++) {
+                    if (ch[j].checked == false) {
+                        flag = false;
+                        break;
+                    }
+                }
+                checkAll.checked = flag;
+            })
+        }
+
+        function info() {
+            for (let i = 0; i < ch.length; i++) {
+                ch[i].checked = checkAll.checked;
+            }
+        }
+
+        //3. DELETE 버튼 누르면 check 된 행 지우기
+        const btn = document.getElementById("delBtn");
+        //const c1 = document.getElementById("c1");
+
+
+        //delete 누르면 체크되어있는 거 다 검사해서 체크되어있는것만 지우기
+        btn.addEventListener("click", function () {
+            console.log("clicked")
+            //For test
+            // if(ch[0].checked == true) {
+            //     id1.remove();
+            // }
+
+            let ar = [];
+
+            for (let i = 0; i < ch.length; i++) {
+                if (ch[i].checked == true) {
+                    //document.getElementById(ch[i].getAttribute("data-del-num")).remove()
+                    ar.push(ch[i].getAttribute("data-del-num"))
+                }
+            }
+
+            for(let i = 0; i < ar.length; i++) {
+                document.getElementById(ar[i]).remove();
+            }
+        })
+
+    </script>
+</body>
+
+</html>
