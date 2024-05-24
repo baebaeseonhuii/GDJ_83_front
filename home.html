@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment</title>
     <style>
-        #line {
+        .checkedList {
             text-decoration: line-through;
         }
-
-        
-
     </style>
 </head>
 
@@ -24,29 +21,69 @@
         <!--체크박스에 체크하면 선이 생김-->
         <!--체크해제하면 선이 없어짐-->
         <!--휴지통 클릭하면 체크박스에 체크된 것들을 삭제-->
-        <input type="text">
-        <button>ADD</button>
+        <input type="text" id="memo">
+        <button id="addBtn">ADD</button>
+
     </div>
 
-    <div>
-
+    <div id="result">
         <div>
-            <button>휴지통</button>
-        </div>
-
-        <div>
-            <input type="checkbox">
-            <span  id="line">게임하기</span>
-        </div>
-        <div>
-            <input type="checkbox">
-            <span>밥먹기</span>
-        </div>
-        <div>
-            <input type="checkbox">
-            <span>씻기</span>
+            <button id="delBtn">휴지통</button>
         </div>
     </div>
+
+    <script>
+        const memo = document.getElementById("memo");
+        const addBtn = document.getElementById("addBtn");
+        const delBtn = document.getElementById("delBtn");
+        const result = document.getElementById("result");
+        const checkedList = document.getElementsByClassName("checkedList");
+        const memoList = document.getElementsByClassName("memoList");
+
+        addBtn.addEventListener("click", function () {
+            let valueOfMemo = memo.value;
+            let divTag = document.createElement("div");
+            let spanBox = document.createElement("span");
+            let checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            spanBox.className = "memoList";
+            //만들때 div태그에 클래스 이름 넣기
+            divTag.className = "divTag"
+
+            let contents = document.createTextNode(valueOfMemo);
+            spanBox.appendChild(contents);
+
+            divTag.appendChild(checkBox);
+            divTag.appendChild(spanBox);
+
+            result.appendChild(divTag);
+            
+
+            checkBox.addEventListener("click", function () {
+                console.log("hi");
+                spanBox.classList.toggle("checkedList");
+
+                let ar = [];
+                let lists = document.getElementsByClassName("checkedList");
+
+
+                delBtn.addEventListener("click", function () {
+                    lists[0].remove();
+                    
+                })
+            })
+
+        })
+
+
+
+
+
+
+
+
+        //Check표시 되면 line through
+    </script>
 </body>
 
 </html>
